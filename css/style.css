@@ -8,3 +8,25 @@
   .form {
     width: 450px;
   }
+
+ .container{
+   display:flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction: column;
+}
+.button {
+ 
+  padding: 0.85em 1.5em;
+  font-size: 1 em;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #5D5D9B;
+  border: 1px solid #222;
+  border-radius: 0;
+ 
+}
+.button:hover {
+  background-color: #8484cf;
+}
