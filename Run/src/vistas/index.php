@@ -1,3 +1,9 @@
+<?php
+  session_start();
+
+  require 'database.php';    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +21,7 @@
           </button>
 
 
-          <a href="register.html" class="btn btn-secondary">Regístrate</a>
+          <a href="register.php" class="btn btn-secondary">Regístrate</a>
 
           </div>
         </div>
@@ -30,7 +36,7 @@
           <p class="lead">Mira las propuestas mas recientes subidas por los estudiantes, califícalas y comunícate con ellos.</p>
           <p class="lead">Si ya eres usuario</p>
           <p class="lead">
-            <a href="login.html" class="btn btn-primary">Inicia Sesion</a>
+            <a href="login.php" class="btn btn-primary">Inicia Sesion</a>
           </p>
         </main>
     </div>

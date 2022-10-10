@@ -78,37 +78,36 @@ const server = new PHPServer({
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow () {
-
+function createWindow() {
   server.run();
-  // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  
+  mainWindow = new BrowserWindow({
+      width: 1024,
+      height: 768,
+      webPreferences: {
+          nodeIntegration: false,
+      },
+  });
 
   // and load the index.html of the app.
-  mainWindow.loadURL('http://'+server.host+':'+server.port+'/')
+  mainWindow.loadURL(
+      "http://" +
+          server.host +
+          ":" +
+          server.port +
+          "/src/vistas/index.php"
+  );
+  
 
-/*
-mainWindow.loadURL(url.format({
-  pathname: path.join(__dirname, 'index.php'),
-  protocol: 'file:',
-  slashes: true
-}))
-*/
- const {shell} = require('electron')
- shell.showItemInFolder('fullPath')
-
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  const { shell } = require("electron");
+  shell.showItemInFolder("fullPath");
 
   // Emitted when the window is closed.
-  mainWindow.on('closed', function () {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    // PHP SERVER QUIT
-    server.close();
-    mainWindow = null;
-  })
+  mainWindow.on("closed", function () {
+      
+      server.close();
+      mainWindow = null;
+  });
 }
 
 // This method will be called when Electron has finished

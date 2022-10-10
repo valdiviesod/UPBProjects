@@ -49,14 +49,14 @@
               <button type="submit" class="btn btn-primary">Regístrate</button>
               <br>
               <p align="center">¿Ya eres usuario de UPBProjects?</p>
-            <a href="login.html"  class="btn btn-primary">Incia Sesion</a>
-            <a href="index.html"  class="btn btn-secondary">Volver</a>
+            <a href="login.php"  class="btn btn-primary">Incia Sesion</a>
+            <a href="index.php"  class="btn btn-secondary">Volver</a>
             </div>
           </div>
         </form>
         
     </div>
 
-    <script src="./app.js"></script>
+    
   </body>
 </html>

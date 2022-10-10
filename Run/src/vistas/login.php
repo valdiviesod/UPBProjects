@@ -34,8 +34,8 @@
               <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
               <br>
               <p align="center">¿No tienes una cuenta?</p>
-            <a href="register.html"  class="btn btn-primary">Regístrate</a>
-            <a href="index.html"  class="btn btn-secondary">Volver</a>
+            <a href="register.php"  class="btn btn-primary">Regístrate</a>
+            <a href="index.php"  class="btn btn-secondary">Volver</a>
             </div>
           </div>
         </form>
