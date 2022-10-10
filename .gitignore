@@ -7,3 +7,6 @@ LICENSE
 LICENSE.md
 package-lock.json
 package.json
+renderer.js
+runphp.js
+setenv.bat
