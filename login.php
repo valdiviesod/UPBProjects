@@ -1,3 +1,35 @@
+
+<?php
+
+session_start();
+
+require 'database.php';
+
+if (!empty($_POST['email']) && !empty($_POST['password'])) {
+  $records = $conn->prepare('SELECT user_id, user_email, user_pass, tipo_id FROM Usuario WHERE user_email = :email');
+  $records->bindParam(':email', $_POST['email']);
+  $records->execute();
+  $results = $records->fetch(PDO::FETCH_ASSOC);
+
+  if($results == false){
+    header("Location: /login.php");
+  } else{
+      if(count($results) > 0 && password_verify($_POST['password'], $results['user_pass']) ) {
+      $_SESSION['user_id'] = $results['user_id'];
+      if ($results['tipo_id'] == 3){
+      header("Location: /main.php");
+      }elseif ($results['tipo_id'] == 2){
+        header("Location: /coordinador.php");        
+      }elseif ($results['tipo_id'] == 1){
+        header("Location: /admin.php");        
+      }
+    } 
+  } 
+}
+
+    
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,12 +43,15 @@
   <body>
     <div class="container">
       <div class="abs-center">
-        <form action="#" class="border p-3 form" id="formlogin">
+        <form action="login.php" method="post" class="border p-3 form" id="formlogin">
           <h1 align="center">Inicia Sesión en UPB Projects</h1>
           <br />
+          <small>*Recuerda que si dejas un campo nulo no se realiza el inicio de sesion</small>
+          <br>
+          <br>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="form-control" />
+            <input type="email" name="email"  class="form-control" />
           </div>
           <br />
           <div class="form-group">
@@ -24,7 +59,6 @@
             <input
               type="password"
               name="password"
-              id="password"
               class="form-control"
             />
           </div>

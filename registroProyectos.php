@@ -34,6 +34,7 @@
           <div id="section-cta">
             <div class="container">
               <button type="submit" class="btn btn-primary">Subir Propuesta</button>
+              <a href="main.php"  class="btn btn-secondary">Volver</a>
             </div>
           </div>
         </form>

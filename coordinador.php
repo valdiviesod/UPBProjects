@@ -9,13 +9,14 @@
     <title>Home</title>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">UPBProjects</a>
+          <a class="navbar-brand" href="main.php">UPBProjects</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <div class="collapse navbar-collapse" id="navbarColor01">
 
 
-          <a href="register.php" class="btn btn-secondary">Regístrate</a>
+              <a href="logout.php" class="btn btn-primary">Cerrar Sesion</a>
 
           </div>
         </div>
@@ -24,13 +25,12 @@
 </head>
 <body class="text-center">
     <div class="abs-center">
-  
         <main role="main" class="inner cover">
-          <h1 class="cover-heading">Bienvenido a UPBProjects</h1>
-          <p class="lead">Mira las propuestas mas recientes subidas por los estudiantes, califícalas y comunícate con ellos.</p>
-          <p class="lead">Si ya eres usuario</p>
-          <p class="lead">
-            <a href="login.php" class="btn btn-primary">Inicia Sesion</a>
+          <h1 class="cover-heading">UPBProjects para Coordinadores</h1>
+          <a href="admin.php"  class="btn btn-primary">Estudiantes</a>   
+          <a href="admin.php"  class="btn btn-primary">Propuestas</a> 
+          <a href="admin.php"  class="btn btn-primary">Reportes</a> 
+
           </p>
         </main>
     </div>

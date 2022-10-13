@@ -52,6 +52,7 @@
           <div id="section-cta">
             <div class="container">
               <button type="submit" class="btn btn-primary">Regístrate como estudiante</button>
+              <a href="main.php"  class="btn btn-secondary">Volver</a>
             </div>
           </div>
         </form>

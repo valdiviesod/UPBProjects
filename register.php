@@ -1,3 +1,20 @@
+<?php
+
+  require 'database.php';
+
+
+  if (!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['nacimiento']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+    $sql = "INSERT INTO Usuario (user_nombres, user_apellidos,user_nacimiento,user_email,user_pass) VALUES (:nombre, :apellido,:nacimiento,:email,:password)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':nombre', $_POST['nombre']);
+    $stmt->bindParam(':apellido', $_POST['apellido']);
+    $stmt->bindParam(':nacimiento', $_POST['nacimiento']);
+    $stmt->bindParam(':email', $_POST['email']);
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $stmt->bindParam(':password', $password);
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,17 +26,21 @@
     <title>Registro</title>
   </head>
   <body>
+
+
     <div class="container">
       <div class="abs-center">
-        <form action="#" class="border p-3 form" id="formregistro">
+        <form action="register.php" method="post" class="border p-3 form">
           <h1 align="center">Regístrate en UPB Projects</h1>
+          <br>
+          <small>*Recuerda que si dejas un campo nulo no se realiza el registro</small>
           <div class="form-group">
             <label class="col-form-label mt-4" for="inputDefault">Nombres</label>
-            <input type="text" id="nombre" class="form-control" placeholder="Ingrese sus nombres" id="inputDefault">
+            <input type="text" name="nombre" class="form-control" placeholder="Ingrese sus nombres" >
           </div>
           <div class="form-group">
             <label class="col-form-label mt-4" for="inputDefault">Apellidos</label>
-            <input type="text" id="apellido" class="form-control" placeholder="Ingrese sus apellidos" id="inputDefault">
+            <input type="text"  name="apellido" class="form-control" placeholder="Ingrese sus apellidos" >
           </div>
           <br>
 
@@ -27,7 +48,7 @@
           <div id="section-cta">
             <div class="container">
                 
-                <input type="date" id="nacimiento" name="bdate" class="btn-date"
+                <input type="date" name="nacimiento" id="nacimiento"  class="btn-date"
                 value="2022-08-03"
                 min="1950-01-01" max="2022-08-03">
             </div>
@@ -37,19 +58,19 @@
         
           <div class="form-group">
             <label for="exampleInputEmail1" class="form-label mt-4">Correo electronico</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ingrese su e-mail">          
+            <input type="email" class="form-control" name="email"  aria-describedby="emailHelp" placeholder="Ingrese su e-mail">          
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1" class="form-label mt-4">Contraseña</label>
-            <input type="password" class="form-control" id="password" placeholder="Ingrese una contraseña">
+            <input type="password" class="form-control" name="password"  placeholder="Ingrese una contraseña">
           </div>
           <br>
           <div id="section-cta">
             <div class="container">
-              <button type="submit" class="btn btn-primary">Regístrate</button>
+              <button type="submit" name="sendRegistro" class="btn btn-primary">Regístrate</button>
               <br>
               <p align="center">¿Ya eres usuario de UPBProjects?</p>
-            <a href="login.php"  class="btn btn-primary">Incia Sesion</a>
+            <a href="login.php"  class="btn btn-primary">Inicia Sesion</a>
             <a href="index.php"  class="btn btn-secondary">Volver</a>
             </div>
           </div>
