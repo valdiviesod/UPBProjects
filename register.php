@@ -3,15 +3,23 @@
   require 'database.php';
 
 
-  if (!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['nacimiento']) && !empty($_POST['email']) && !empty($_POST['password'])) {
-    $sql = "INSERT INTO Usuario (user_nombres, user_apellidos,user_nacimiento,user_email,user_pass) VALUES (:nombre, :apellido,:nacimiento,:email,:password)";
+  if (!empty($_POST['email']) && !empty($_POST['password'])) {
+    $sql = "INSERT INTO Usuario (user_nombres, user_apellidos, user_nacimiento, user_email, user_pass) VALUES (:name, :last, :bdate, :correo, :pass)";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':nombre', $_POST['nombre']);
-    $stmt->bindParam(':apellido', $_POST['apellido']);
-    $stmt->bindParam(':nacimiento', $_POST['nacimiento']);
-    $stmt->bindParam(':email', $_POST['email']);
+    $stmt->bindParam(':name', $_POST['nombre']);
+    $stmt->bindParam(':last', $_POST['apellido']);
+    $stmt->bindParam(':bdate', $_POST['nacimiento']);
+    $stmt->bindParam(':correo', $_POST['email']);
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':pass', $password);
+
+    if ($stmt->execute()) {
+      $var = "Usuario creado exitosamente";
+      echo "<script> alert('".$var."'); </script>";
+    } else {
+      $var = "Error al crear tu usuario";
+      echo "<script> alert('".$var."'); </script>";
+    }
   }
 ?>
 
@@ -30,7 +38,7 @@
 
     <div class="container">
       <div class="abs-center">
-        <form action="register.php" method="post" class="border p-3 form">
+        <form action="register.php" method="POST" class="border p-3 form">
           <h1 align="center">Regístrate en UPB Projects</h1>
           <br>
           <small>*Recuerda que si dejas un campo nulo no se realiza el registro</small>
@@ -67,7 +75,7 @@
           <br>
           <div id="section-cta">
             <div class="container">
-              <button type="submit" name="sendRegistro" class="btn btn-primary">Regístrate</button>
+            <input class="btn btn-primary" type="submit" value="Registrate">
               <br>
               <p align="center">¿Ya eres usuario de UPBProjects?</p>
             <a href="login.php"  class="btn btn-primary">Inicia Sesion</a>

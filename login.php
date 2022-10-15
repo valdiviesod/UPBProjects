@@ -12,7 +12,8 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
   $results = $records->fetch(PDO::FETCH_ASSOC);
 
   if($results == false){
-    header("Location: /login.php");
+    $var = "Error al iniciar sesion";
+      echo "<script> alert('".$var."'); </script>";
   } else{
       if(count($results) > 0 && password_verify($_POST['password'], $results['user_pass']) ) {
       $_SESSION['user_id'] = $results['user_id'];
@@ -43,7 +44,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
   <body>
     <div class="container">
       <div class="abs-center">
-        <form action="login.php" method="post" class="border p-3 form" id="formlogin">
+        <form action="login.php" method="POST" class="border p-3 form" id="formlogin">
           <h1 align="center">Inicia Sesión en UPB Projects</h1>
           <br />
           <small>*Recuerda que si dejas un campo nulo no se realiza el inicio de sesion</small>
@@ -65,7 +66,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
           <br>
           <div id="section-cta">
             <div class="container">
-              <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+            <input class="btn btn-primary" type="submit" value="Inicia sesion">
               <br>
               <p align="center">¿No tienes una cuenta?</p>
             <a href="register.php"  class="btn btn-primary">Regístrate</a>
