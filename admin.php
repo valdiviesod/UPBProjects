@@ -27,7 +27,7 @@
     <div class="abs-center">
         <main role="main" class="inner cover">
           <h1 class="cover-heading">UPBProjects para Administradores</h1>
-          <a href="admin.php"  class="btn btn-primary">Usuarios</a>   
+          <a href="gestionUsuario.php"  class="btn btn-primary">Usuarios</a>   
           <a href="admin.php"  class="btn btn-primary">Propuestas</a> 
           <a href="admin.php"  class="btn btn-primary">Reportes</a> 
           <a href="admin.php"  class="btn btn-primary">Grupos</a> 

@@ -24,6 +24,10 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
       }elseif ($results['tipo_id'] == 1){
         header("Location: /admin.php");        
       }
+    }else{
+      $var = "Email o contraseña incorrectos";
+      echo "<script> alert('".$var."'); </script>";
+
     } 
   } 
 }
