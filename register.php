@@ -78,7 +78,7 @@
             <input class="btn btn-primary" type="submit" value="Registrate">
               <br>
               <p align="center">¿Ya eres usuario de UPBProjects?</p>
-            <a href="login.php"  class="btn btn-primary">Inicia Sesion</a>
+            <a href="login.php"  class=">">Inicia Sesion</a>
             <a href="index.php"  class="btn btn-secondary">Volver</a>
             </div>
           </div>

@@ -3,7 +3,7 @@ include_once "database.php";
 $sentencia = $conn->query("select * from Usuario");
 $users = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
-<!--Recordemos que podemos intercambiar HTML y PHP como queramos-->
+
 <!DOCTYPE html>
 <html lang="es">
 <link rel="stylesheet" href="bootstrap.min.css">
@@ -36,10 +36,7 @@ $users = $sentencia->fetchAll(PDO::FETCH_OBJ);
 			</tr>
 		</thead>
 		<tbody>
-			<!--
-				Atención aquí, sólo esto cambiará
-				Pd: no ignores las llaves de inicio y cierre {}
-			-->
+
 			<?php foreach($users as $user){ ?>
 			<tr>
 				<td><?php echo $user->user_id; ?></td>

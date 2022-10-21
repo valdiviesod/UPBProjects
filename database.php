@@ -1,5 +1,5 @@
 <?php
-$server = 'localhost:3306';
+$server = '127.0.1.1';
 $username = 'root';
 $password = '';
 $database = 'upbprojects';

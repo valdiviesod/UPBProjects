@@ -1,3 +1,27 @@
+<?php
+
+  require 'database.php';
+
+
+  if (!empty($_POST['email']) && !empty($_POST['password'])) {
+    $sql = "INSERT INTO Estudiante (user_nombres, user_apellidos, user_nacimiento, user_email, user_pass) VALUES (:name, :last, :bdate, :correo, :pass)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':name', $_POST['nombre']);
+    $stmt->bindParam(':last', $_POST['apellido']);
+    $stmt->bindParam(':bdate', $_POST['nacimiento']);
+    $stmt->bindParam(':correo', $_POST['email']);
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $stmt->bindParam(':pass', $password);
+
+    if ($stmt->execute()) {
+      $var = "Usuario creado exitosamente";
+      echo "<script> alert('".$var."'); </script>";
+    } else {
+      $var = "Error al crear tu usuario";
+      echo "<script> alert('".$var."'); </script>";
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

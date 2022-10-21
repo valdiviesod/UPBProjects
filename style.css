@@ -30,3 +30,5 @@
 .button:hover {
   background-color: #8484cf;
 }
+
+.bolded { font-weight: bold; }
