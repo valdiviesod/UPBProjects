@@ -15,8 +15,6 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarColor01">
 
-
-              <a href="admin.php" class="btn btn-primary">Volver</a>
               <a href="logout.php" class="btn btn-primary">Cerrar Sesion</a>
 
           </div>
@@ -29,8 +27,7 @@
         <main role="main" class="inner cover">
           <h1 class="cover-heading">UPBProjects para Administradores</h1>
           <a href="gestionUsuario.php"  class="btn btn-primary">Usuarios</a>   
-          <a href="admin.php"  class="btn btn-primary">Propuestas</a> 
-          <a href="admin.php"  class="btn btn-primary">Reportes</a> 
+          <a href="gestionPropuestas.php"  class="btn btn-primary">Propuestas</a> 
 
 
           </p>

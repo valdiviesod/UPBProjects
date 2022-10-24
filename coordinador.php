@@ -28,8 +28,7 @@
         <main role="main" class="inner cover">
           <h1 class="cover-heading">UPBProjects para Coordinadores</h1>
           <a href="admin.php"  class="btn btn-primary">Estudiantes</a>   
-          <a href="admin.php"  class="btn btn-primary">Propuestas</a> 
-          <a href="admin.php"  class="btn btn-primary">Reportes</a> 
+          <a href="gestionPropuestasCoord.php"  class="btn btn-primary">Propuestas</a> 
 
           </p>
         </main>
